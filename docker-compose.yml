@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+
+  backend:
+    build:
+      context: ./backend_project
+      dockerfile: containers/Dockerfile
+
+    container_name: django
+    ports:
+      - "8000:8000"
+
+    tty: true
+    command: python3 /backend/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend_project/backend:/backend
+    depends_on:
+      - database
+  
+  frontend:
+    build:
+      context: ./frontend_project
+      dockerfile: containers/Dockerfile
+
+    container_name: react
+    ports:
+      - "3000:3000"
+
+    tty: true
+
+    volumes:
+      - ./frontend_project/frontend:/usr/src/app/frontend
+    command: sh -c "cd /usr/src/app/frontend && npm start"
+
+  database:
+    build:
+      context: ./database
+      dockerfile: containers/Dockerfile
+
+    tty: true
+    container_name: postgres
+
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+      - POSTGRES_EXTENSION=postgis:3.1
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+      
+      #- ./database/sql:/docker-entrypoint-initdb.d
+      #- ./database/gtfs_data:/var/lib/postgresql/gtfs_data

@@ -1,0 +1,17 @@
+# Ignore database files
+*.sqlite3
+
+# Ignore data directory
+database/data
+
+
+# Ignore node_modules directory for the frontend
+/frontend_project/frontend/node_modules/
+
+
+# Ignore all .gitattributes files
+database/data/**/*.gitattributes
+
+.env
+
+node_modules/

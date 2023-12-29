@@ -1,0 +1,15 @@
+,agency_id,agency_name,agency_url,agency_timezone,agency_lang,agency_phone,agency_fare_url,agency_email
+0,0-300020052019,秋田市,https://www.akitainfo.jp/sp/bus/,Asia/Tokyo,ja,018-888-5766,,ro-urtp@city.akita.lg.jp
+0,1-3000020052159,秋田県仙北市,https://www.city.semboku.akita.jp/citizens/10_01.html,Asia/Tokyo,ja,0187-43-1112,https://www.city.semboku.akita.jp/citizens/10_01.html,kikaku@city.semboku.akita.jp
+0,2-2000020052060,男鹿市,https://www.city.oga.akita.jp/soshik/kikakuseisakuka/doro_kotsu/1/4038.html,Asia/Tokyo,ja,0185-24-9122,,
+0,3-2000020052060,男鹿市,https://www.city.oga.akita.jp/soshik/kikakuseisakuka/doro_kotsu/1/4038.html,Asia/Tokyo,ja,0185-24-9122,,
+0,4-3410001006019,秋北バス株式会社,https://shuhokubus-gr.co.jp/,Asia/Tokyo,ja,+81-186-42-3536,,
+0,5-3000020052035,秋田県横手市,https://www.city.yokote.lg.jp/kurashi/1001144/1001292/index.html,Asia/Tokyo,ja,0182-35-2164,,kikaku@city.yokote.lg.jp
+0,6-角営,羽後交通角館営業所,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,0187-54-2202,,
+1,6-田営,羽後交通田沢湖営業所,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,0187-43-1511,,
+2,6-横営,羽後交通横手営業所,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,0182-32-2265,,
+3,6-湯営,羽後交通湯沢営業所,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,0183-73-1153,,
+4,6-大営,羽後交通大曲営業所,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,0187-63-2215,,
+5,6-境営,羽後交通境営業所,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,018-892-3036,,
+6,6-本営,羽後交通本荘営業所,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,0184-24-2440,,
+7,6-遊覧,羽後交通興業観光事業部,http://bit.ly/2IrZ8z8,Asia/Tokyo,JA,0187-43-0274 ,,
