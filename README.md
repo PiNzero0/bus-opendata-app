@@ -3,6 +3,7 @@ docker-compose up -d
 
 
 データのインポート
+
 docker-compose exec backend bash
 
 python manage.py makemigrations
