@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import platform
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -142,7 +144,13 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # GDAL library path
-GDAL_LIBRARY_PATH = '/usr/lib/x86_64-linux-gnu/libgdal.so.32'  # ライブラリのバージョンに合わせて適切なパスを指定
+# ライブラリのバージョンに合わせて適切なパスを指定
+if os.environ.get('GDAL_LIBRARY_PATH'):
+    GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
+elif platform.system() == 'Linux' and platform.machine() == 'x86_64':
+    GDAL_LIBRARY_PATH = '/usr/lib/x86_64-linux-gnu/libgdal.so.32'
+elif platform.system() == 'Linux' and platform.machine() == 'aarch64':
+    GDAL_LIBRARY_PATH = '/lib/aarch64-linux-gnu/libgdal.so.32'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
