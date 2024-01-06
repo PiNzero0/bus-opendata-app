@@ -13,10 +13,9 @@ class Calendar_Dates(models.Model):
     # Django Calendar_Dates Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
+    calendar_obj = models.ForeignKey(Calendar, on_delete=models.CASCADE)
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['service_id', 'date', 'registrant'], name='unique_calendar_dates'),
-            models.UniqueConstraint(fields=['service', 'date', 'registrant'], name='unique_calendar_dates_django'),
         ]

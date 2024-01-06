@@ -16,7 +16,7 @@ class Agency_jp(models.Model):
     # Django Agency-JP Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    agency = models.OneToOneField(Agency, on_delete=models.CASCADE)
+    agency_obj = models.OneToOneField(Agency, on_delete=models.CASCADE)
 
     class Meta:
         constraints = [

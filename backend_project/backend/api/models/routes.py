@@ -19,9 +19,9 @@ class Routes(models.Model):
     # Django Routes Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    agency = models.ForeignKey(Agency, on_delete=models.CASCADE)
+    agency_obj = models.ForeignKey(Agency, on_delete=models.CASCADE)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['route_id', 'source'], name='unique_routes')
+            models.UniqueConstraint(fields=['route_id', 'agency_obj'], name='unique_routes')
         ]

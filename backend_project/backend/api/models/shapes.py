@@ -17,5 +17,5 @@ class Shapes(models.Model):
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['id', 'source'], name='unique_shapes'),
+            models.UniqueConstraint(fields=['id', 'registrant'], name='unique_shapes'),
         ]

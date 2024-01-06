@@ -14,5 +14,5 @@ class Transfers(models.Model):
     # Django Transfers Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    from_stop = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='from_stop')
-    to_stop = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='to_stop')
+    from_stop_obj = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='from_stop')
+    to_stop_obj = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='to_stop')

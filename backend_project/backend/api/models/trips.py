@@ -23,12 +23,12 @@ class Trips(models.Model):
     # Django Trips Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    route = models.ForeignKey(Routes, on_delete=models.CASCADE)
-    service = models.ForeignKey(Calendar, on_delete=models.CASCADE)
-    shape = models.ForeignKey(Shapes, on_delete=models.CASCADE)
-    jp_office = models.ForeignKey(Office_jp, on_delete=models.CASCADE)
+    route_obj = models.ForeignKey(Routes, on_delete=models.CASCADE)
+    service_obj = models.ForeignKey(Calendar, on_delete=models.CASCADE)
+    jp_office_obj = models.ForeignKey(Office_jp, on_delete=models.CASCADE, blank=True, null=True)
+    shapes = models.ManyToManyField('Shapes', blank=True)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['trip_id', 'source'], name='unique_trips')
+            models.UniqueConstraint(fields=['trip_id', 'registrant'], name='unique_trips')
         ]

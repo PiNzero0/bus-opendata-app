@@ -15,9 +15,9 @@ class Routes_jp(models.Model):
     # Django Routes-JP Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    route = models.ForeignKey(Routes, on_delete=models.CASCADE)
+    route_obj = models.ForeignKey(Routes, on_delete=models.CASCADE)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['id', 'source'], name='unique_route_jp'),
+            models.UniqueConstraint(fields=['id', 'registrant'], name='unique_route_jp'),
         ]

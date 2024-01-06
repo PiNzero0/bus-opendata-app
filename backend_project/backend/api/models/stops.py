@@ -1,5 +1,5 @@
 from django.db import models
-from . import Registrant, Stop_Times
+from . import Registrant
 
 class Stops(models.Model):
     #
@@ -22,7 +22,6 @@ class Stops(models.Model):
     # Django Stops Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    stop = models.ForeignKey(Stop_Times, on_delete=models.CASCADE)
 
     class Meta:
         constraints = [

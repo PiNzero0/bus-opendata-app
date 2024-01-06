@@ -15,6 +15,6 @@ class Frequencies(models.Model):
     # Django Frequencies Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    trip = models.ForeignKey(Trips, on_delete=models.CASCADE)
+    trip_obj = models.ForeignKey(Trips, on_delete=models.CASCADE)
 
     

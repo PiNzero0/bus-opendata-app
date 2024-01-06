@@ -14,10 +14,10 @@ class Fare_Rules(models.Model):
     # Django Fare_Rules Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    fare = models.ForeignKey(Fare_Attributes, on_delete=models.CASCADE)
-    route = models.ForeignKey(Routes, on_delete=models.CASCADE)
-    origin = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='origin')
-    destination = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='destination')
+    fare_obj = models.ForeignKey(Fare_Attributes, on_delete=models.CASCADE)
+    route_obj = models.ForeignKey(Routes, on_delete=models.CASCADE, null=True, blank=True)
+    origin_obj = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='origin', null=True, blank=True)
+    destination_obj = models.ForeignKey(Stops, on_delete=models.CASCADE, related_name='destination', null=True, blank=True)
 
     class Meta:
         constraints = [

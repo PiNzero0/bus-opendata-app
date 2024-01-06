@@ -1,5 +1,5 @@
 from django.db import models
-from . import Registrant, Trips
+from . import Registrant, Trips, Stops
 
 class Stop_Times(models.Model):
     #
@@ -19,4 +19,5 @@ class Stop_Times(models.Model):
     # Django Stop_Times Fields
     #
     registrant = models.ForeignKey(Registrant, on_delete=models.CASCADE)
-    trip = models.ForeignKey(Trips, on_delete=models.CASCADE)
+    trip_obj = models.ForeignKey(Trips, on_delete=models.CASCADE)
+    stop_obj = models.ForeignKey(Stops, on_delete=models.CASCADE)
