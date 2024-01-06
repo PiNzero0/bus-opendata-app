@@ -31,7 +31,8 @@ services:
 
     volumes:
       - ./frontend_project/frontend:/usr/src/app/frontend
-    command: sh -c "cd /usr/src/app/frontend && npm start"
+      - node_modules:/usr/src/app/frontend/node_modules
+    command: sh -c "npm install && npm run start"
 
   database:
     build:
@@ -53,3 +54,6 @@ services:
       
       #- ./database/sql:/docker-entrypoint-initdb.d
       #- ./database/gtfs_data:/var/lib/postgresql/gtfs_data
+
+volumes:
+  node_modules:
