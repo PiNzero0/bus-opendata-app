@@ -78,7 +78,7 @@ const MapComponent = ({ smallimg, lat, lng }) => {
 
   const handleCardClick = async (routeId) => {
     try {
-      const apiUrl = 'http://localhost:8000/api/get_stop_id/${routeId}';
+      const apiUrl = `http://localhost:8000/api/get_stop_id/${routeId}`;
       const response = await fetch(apiUrl);
   
       if (!response.ok) {
