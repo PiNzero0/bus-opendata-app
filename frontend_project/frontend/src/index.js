@@ -1,8 +1,14 @@
 // src/index.js
+
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Map from './Map';
+import ReactDOM from 'react-dom';
+import AppWithAppBar from './AppWithAppBar';
 
-const root = createRoot(document.getElementById('root'));
+const root = document.getElementById('root');
+const app = (
+  <React.StrictMode>
+    <AppWithAppBar />
+  </React.StrictMode>
+);
 
-root.render(<Map />);
+ReactDOM.createRoot(root).render(app);

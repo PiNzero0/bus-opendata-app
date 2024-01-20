@@ -8,12 +8,17 @@ class AgencySerializer(serializers.ModelSerializer):
 
 class AgencyjpSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Agencyjp
+        model = Agency_jp
         fields = '__all__'
 
 class StopsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stops
+        fields = '__all__'
+
+class Stop_TimesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Stop_Times
         fields = '__all__'
 
 class RoutesSerializer(serializers.ModelSerializer):
@@ -23,7 +28,7 @@ class RoutesSerializer(serializers.ModelSerializer):
 
 class Route_jpSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Route_jp
+        model = Routes_jp
         fields = '__all__'
 
 class TripsSerializer(serializers.ModelSerializer):
@@ -66,12 +71,12 @@ class TransferSerializer(serializers.ModelSerializer):
         model = Transfers
         fields = '__all__'
 
-class TranslationsSerializer(serializers.ModelSerializer):
+"""class TranslationsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Translations
-        fields = '__all__'
+        fields = '__all__'"""
 
 class FeedInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FeedInfo
+        model = Feed_Info
         fields = '__all__'
