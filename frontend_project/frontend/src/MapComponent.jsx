@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, MarkerF, Marker } from '@react-google-maps/api';
 import DetailsComponent from './DetailsComponent';
 import { Drawer, Card, CardContent, Typography } from '@mui/material';
 
-const MapComponent = ({ img, lat, lng }) => {
+
+const MapComponent = ({ smallimg, lat, lng }) => {
   const [stops, setStops] = useState([]);
   const [selectedStop, setSelectedStop] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -77,7 +78,7 @@ const MapComponent = ({ img, lat, lng }) => {
 
   const handleCardClick = async (routeId) => {
     try {
-      const apiUrl = `http://localhost:8000/api/get_stop_id/${routeId}`;
+      const apiUrl = 'http://localhost:8000/api/get_stop_id/${routeId}';
       const response = await fetch(apiUrl);
   
       if (!response.ok) {
@@ -124,11 +125,7 @@ const MapComponent = ({ img, lat, lng }) => {
               <MarkerF
                 position={mapCenter}
                 icon={{
-                  url: img, // 画像のURL
-                  scaledSize: new window.google.maps.Size(50, 50), // アイコンのサイズを指定
-                  origin: new window.google.maps.Point(0, 0), // アイコンの原点を左上に設定
-                  anchor: new window.google.maps.Point(25, 25), // アイコンのアンカーを中央に設定
-                  optimized: false, // スムージングを有効にする
+                  url: smallimg,
                 }}
               />
             </React.Fragment>

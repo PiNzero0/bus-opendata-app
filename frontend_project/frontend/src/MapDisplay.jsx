@@ -9,7 +9,7 @@ const MapDisplay = ({ selectedLocation, onBackButtonClick }) => {
     <div>
       <h2>{selectedLocation.name}のマップ</h2>
       <MapComponent 
-      img={selectedLocation.img}
+      smallimg={selectedLocation.small}
       lat={selectedLocation.coords.lat} 
       lng={selectedLocation.coords.lng} 
       />
