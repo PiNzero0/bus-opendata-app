@@ -143,7 +143,7 @@ def get_stop_details(request, stop_id):
         return Response(trip_ids)
     except Stop_Times.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-        
+
 @api_view(['GET'])
 def get_bus_info(request, stop_id):
     try:
@@ -175,28 +175,28 @@ def get_bus_info(request, stop_id):
                     for time_data in times_data:
                         result_data.append({'route_id': route_id, 'direction_id': direction_id, **time_data})
                 except Calendar_Dates.DoesNotExist:
-                    # Calendar_Datesからデータが取得できなかった場合のみ、Calendarからのデータ取得を試みる
-                    try:
-                        # Calendarが存在する場合も取得
-                        calendar = Calendar.objects.get(service_id=service_id)
-                        if is_weekday_today(calendar):
-                            stop_times_data = Stop_Times.objects.filter(stop_id=stop_id, trip_id=stop_time.trip_id)
-                            serializer_stop_times = Stop_TimesSerializer(stop_times_data, many=True)
-                            
-                            # 到着時間と出発時間を抽出
-                            times_data = [{'arrival_time': stop_time['arrival_time'], 'departure_time': stop_time['departure_time']}
-                                          for stop_time in serializer_stop_times.data]
+                    pass
 
-                            # 一つずつtimes_dataをresult_dataに追加
-                            for time_data in times_data:
-                                result_data.append({'route_id': route_id, 'direction_id': direction_id, **time_data})
-                    except Calendar.DoesNotExist:
-                        pass
+                try:
+                    # Calendarが存在する場合も取得
+                    calendar = Calendar.objects.get(service_id=service_id)
+                    if is_weekday_today(calendar):
+                        stop_times_data = Stop_Times.objects.filter(stop_id=stop_id, trip_id=stop_time.trip_id)
+                        serializer_stop_times = Stop_TimesSerializer(stop_times_data, many=True)
+                        
+                        # 到着時間と出発時間を抽出
+                        times_data = [{'arrival_time': stop_time['arrival_time'], 'departure_time': stop_time['departure_time']}
+                                      for stop_time in serializer_stop_times.data]
+
+                        # 一つずつtimes_dataをresult_dataに追加
+                        for time_data in times_data:
+                            result_data.append({'route_id': route_id, 'direction_id': direction_id, **time_data})
+                except Calendar.DoesNotExist:
+                    pass
 
         return Response({'data': result_data})
     except Stop_Times.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-
 
 
 # 以下は既存のコードから変更なし
