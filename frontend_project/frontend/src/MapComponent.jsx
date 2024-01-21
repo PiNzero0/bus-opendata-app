@@ -133,7 +133,7 @@ const MapComponent = ({ smallimg, lat, lng }) => {
         </GoogleMap>
       </LoadScript>
       <Drawer anchor="right" open={Boolean(selectedStop)} onClose={handleCloseDrawer}>
-        <div style={{ width: 300 }}>
+        <div style={{ width: 300, overflowY: 'auto' }}>
           <Card>
             <CardContent>
               {/* バス停の名前を表示 */}
