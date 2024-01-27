@@ -6,7 +6,7 @@ class Fare_Attributes(models.Model):
     # GTFS-JP Fare_Attributes Fields
     #
     fare_id = models.CharField(max_length=255)
-    price = models.FloatField(null=True,blank=True)
+    price = models.IntegerField()
     currency_type = models.CharField(max_length=255)
     payment_method = models.IntegerField()
     transfers = models.IntegerField()

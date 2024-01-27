@@ -10,6 +10,7 @@ urlpatterns = [
     path('get_stop_id/<str:route_id>', get_stop_id, name='get_stop_id'),
     path ('get_stop_details/<str:stop_id>/',get_stop_details, name='get_stop_details'),
     path('get_bus_info/<str:stop_id>/', get_bus_info, name='get_bus_info'),
+    path('get_route_short_name/<str:route_id>/', get_route_short_name, name='get_route_short_name'),
     path('routes/', RoutesListView.as_view(), name='routes-list'),
     path('routes/<int:pk>/', RoutesDetailView.as_view(), name='routes-detail'),
     path('trips/', TripsListView.as_view(), name='trips-list'),

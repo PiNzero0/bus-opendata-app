@@ -2,7 +2,7 @@
 0,秋田市,https://www.city.akita.lg.jp/kurashi/kotsu/1012207/1007651.html,https://www.city.akita.lg.jp/kurashi/kotsu/1012207/1007651.html,sonosujiya@gmail.com,ja,20231001,20240930,20231001_2023年10月01日（秋田市マイタウン・バス、循環バスぐるる） その筋屋 1.660
 0,秋田県仙北市,https://www.city.semboku.akita.jp/index.php,,,ja,20211216,20220331,2021/01/04改正
 0,男鹿市,https://www.city.oga.akita.jp/,,,ja,20230318,20240317,20230318_2023年03月18日（改正　グーグル用） その筋屋 1.616
-0,男鹿市,https://www.city.oga.akita.jp/,,,ja,20230318,20240317,20230318_2023年03月18日（改正） その筋屋 1.616
 0,秋北バス株式会社,https://shuhokubus-gr.co.jp/,https://shuhokubus-gr.co.jp/,sonosujiya@gmail.com,ja,20231010,20241009,20231001_2023年10月01日（R5-1001） その筋屋 1.623
 0,秋田県横手市,https://www.city.yokote.lg.jp,,,ja,20230511,20240331,2023/04/01改正-見える化ver2.6
 0,国際教養大学アジア地域研究連携機構,http://web.aiu.ac.jp/iasrc,,,JA,20230401,20240331,ver1
+0,秋田中央交通,https://www.akita-chuoukotsu.co.jp/,https://www.akita-chuoukotsu.co.jp/,sonosujiya@gmail.com,ja,20231218,20241217,20231001_2023年10月01日（秋田中央交通　2023.11.20ダイヤ改正　中央交通線） その筋屋 1.623
