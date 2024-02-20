@@ -154,9 +154,124 @@ def get_route_short_name(request, route_id):
     except Routes.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
+"""
+@api_view(['GET'])
+#バスの運行状況を取得する。（2024年1月22日の運行状況を取得する）
+
+def get_bus_info(request, stop_id):
+    try:
+
+        # 固定の日付（2024年1月22日）を使用
+        fixed_date = datetime(2024, 1, 22, tzinfo=ZoneInfo("Asia/Tokyo"))
+        today = fixed_date.strftime('%Y-%m-%d')
+        stop_times = Stop_Times.objects.filter(stop_id=stop_id).distinct('trip_id')
+
+        result_data = []  # 結果データを格納するリスト
+
+        for stop_time in stop_times:
+            trips = Trips.objects.filter(trip_id=stop_time.trip_id)
+            serializer = TripsSerializer(trips, many=True)
+            for trip in serializer.data:
+                service_id = trip['service_id']
+                route_id = trip['route_id']
+                direction_id = trip['direction_id']
+
+                try:
+                    # Calendar_Datesからデータを取得
+                    calendar_dates = Calendar_Dates.objects.get(service_id=service_id, date=today)
+
+                    stop_times_data = Stop_Times.objects.filter(stop_id=stop_id, trip_id=stop_time.trip_id)
+                    serializer_stop_times = Stop_TimesSerializer(stop_times_data, many=True)
+                    
+                    # 到着時間と出発時間を抽出
+                    times_data = [{'arrival_time': stop_time['arrival_time'], 'departure_time': stop_time['departure_time']}
+                                  for stop_time in serializer_stop_times.data]
+
+                    # 一つずつtimes_dataをresult_dataに追加
+                    for time_data in times_data:
+                        result_data.append({'source': 'calendar_dates', 'route_id': route_id, 'direction_id': direction_id, **time_data})
+                except Calendar_Dates.DoesNotExist:
+                    # Calendar_Datesが存在せず、Calendarが存在する場合に取得
+                    try:
+                        calendar = Calendar.objects.get(service_id=service_id)
+                        if is_weekday_today(calendar, today):
+                            stop_times_data = Stop_Times.objects.filter(stop_id=stop_id, trip_id=stop_time.trip_id)
+                            serializer_stop_times = Stop_TimesSerializer(stop_times_data, many=True)
+
+                            # 到着時間と出発時間を抽出
+                            times_data = [{'arrival_time': stop_time['arrival_time'], 'departure_time': stop_time['departure_time']}
+                                          for stop_time in serializer_stop_times.data]
+
+                            # 一つずつtimes_dataをresult_dataに追加
+                            for time_data in times_data:
+                                result_data.append({'source': 'calendar', 'route_id': route_id, 'direction_id': direction_id, **time_data})
+                    except Calendar.DoesNotExist:
+                        pass
+
+        return Response({'data': result_data})
+    except Stop_Times.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+"""
+@api_view(['GET'])
+#バスの運行状況を取得する。（2024年1月21日の運行状況を取得する）
+
+def get_bus_info(request, stop_id):
+    try:
+
+        # 固定の日付（2024年1月21日）を使用
+        fixed_date = datetime(2024, 1, 21, tzinfo=ZoneInfo("Asia/Tokyo"))
+        today = fixed_date.strftime('%Y-%m-%d')
+        stop_times = Stop_Times.objects.filter(stop_id=stop_id).distinct('trip_id')
+
+        result_data = []  # 結果データを格納するリスト
+
+        for stop_time in stop_times:
+            trips = Trips.objects.filter(trip_id=stop_time.trip_id)
+            serializer = TripsSerializer(trips, many=True)
+            for trip in serializer.data:
+                service_id = trip['service_id']
+                route_id = trip['route_id']
+                direction_id = trip['direction_id']
+
+                try:
+                    # Calendar_Datesからデータを取得
+                    calendar_dates = Calendar_Dates.objects.get(service_id=service_id, date=today)
+
+                    stop_times_data = Stop_Times.objects.filter(stop_id=stop_id, trip_id=stop_time.trip_id)
+                    serializer_stop_times = Stop_TimesSerializer(stop_times_data, many=True)
+                    
+                    # 到着時間と出発時間を抽出
+                    times_data = [{'arrival_time': stop_time['arrival_time'], 'departure_time': stop_time['departure_time']}
+                                  for stop_time in serializer_stop_times.data]
+
+                    # 一つずつtimes_dataをresult_dataに追加
+                    for time_data in times_data:
+                        result_data.append({'source': 'calendar_dates', 'route_id': route_id, 'direction_id': direction_id, **time_data})
+                except Calendar_Dates.DoesNotExist:
+                    # Calendar_Datesが存在せず、Calendarが存在する場合に取得
+                    try:
+                        calendar = Calendar.objects.get(service_id=service_id)
+                        if is_weekday_today(calendar, today):
+                            stop_times_data = Stop_Times.objects.filter(stop_id=stop_id, trip_id=stop_time.trip_id)
+                            serializer_stop_times = Stop_TimesSerializer(stop_times_data, many=True)
+
+                            # 到着時間と出発時間を抽出
+                            times_data = [{'arrival_time': stop_time['arrival_time'], 'departure_time': stop_time['departure_time']}
+                                          for stop_time in serializer_stop_times.data]
+
+                            # 一つずつtimes_dataをresult_dataに追加
+                            for time_data in times_data:
+                                result_data.append({'source': 'calendar', 'route_id': route_id, 'direction_id': direction_id, **time_data})
+                    except Calendar.DoesNotExist:
+                        pass
+
+        return Response({'data': result_data})
+    except Stop_Times.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
-#バスの運行状況を取得する。
+"""
+# バスの運行状況を取得する。
 @api_view(['GET'])
 def get_bus_info(request, stop_id):
     try:
@@ -191,7 +306,7 @@ def get_bus_info(request, stop_id):
                     # Calendar_Datesが存在せず、Calendarが存在する場合に取得
                     try:
                         calendar = Calendar.objects.get(service_id=service_id)
-                        if is_weekday_today(calendar):
+                        if is_weekday_today(calendar, today):
                             stop_times_data = Stop_Times.objects.filter(stop_id=stop_id, trip_id=stop_time.trip_id)
                             serializer_stop_times = Stop_TimesSerializer(stop_times_data, many=True)
 
@@ -208,12 +323,10 @@ def get_bus_info(request, stop_id):
         return Response({'data': result_data})
     except Stop_Times.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-
-
-# 以下は既存のコードから変更なし
-
-def is_weekday_today(calendar):
-    today_weekday = datetime.now(ZoneInfo("Asia/Tokyo")).weekday()
+"""
+def is_weekday_today(calendar, today):
+    today_datetime = datetime.strptime(today, '%Y-%m-%d')
+    today_weekday = today_datetime.weekday()
     return getattr(calendar, _get_weekday_field_name(today_weekday)) == 1
 
 def _get_weekday_field_name(weekday):
